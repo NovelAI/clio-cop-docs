@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>clio-cop — Privacy Policy</title>
+<style>
+  :root { --bg:#0f1115; --card:#171a21; --fg:#e6e8eb; --muted:#9aa3af; --accent:#5865f2; --line:#262b35; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+         background:var(--bg); color:var(--fg); }
+  .wrap { max-width:760px; margin:0 auto; padding:48px 24px 80px; }
+  h1 { font-size:2rem; }
+  h2 { font-size:1.2rem; margin-top:2em; border-bottom:1px solid var(--line); padding-bottom:.3em; }
+  .muted { color:var(--muted); }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  ul { padding-left:1.2em; }
+  li { margin:.35em 0; }
+  nav { margin-bottom:24px; font-size:.95rem; }
+  table { width:100%; border-collapse:collapse; margin:1em 0; font-size:.95rem; }
+  th,td { text-align:left; padding:8px 10px; border:1px solid var(--line); vertical-align:top; }
+  th { background:#0b0d12; }
+  code { background:#0b0d12; padding:1px 6px; border-radius:5px; font-size:.9em; }
+  footer { color:var(--muted); font-size:.9rem; margin-top:48px; border-top:1px solid var(--line); padding-top:16px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav><a href="index.html">&larr; clio-cop</a> · <a href="terms.html">Terms of Service</a></nav>
+  <h1>Privacy Policy</h1>
+  <p class="muted">Effective 2026-06-11. clio-cop ("the bot", "we") is an automated moderation bot
+     operated by Anlatan within our Discord server. This policy explains, to you as a member of
+     that server, what data the bot accesses and how it is handled.</p>
+
+  <h2>1. Scope</h2>
+  <p>This policy covers the clio-cop bot as it operates in the Anlatan Discord server. It applies to
+     members of that server whose posted images the bot scans. The bot is not made available for use
+     in other servers.</p>
+
+  <h2>2. What we access</h2>
+  <p>The bot operates on messages posted in channels it can see. Specifically:</p>
+  <ul>
+    <li><strong>Image attachments.</strong> The bot reads the image files attached to messages in
+        order to score them for scam content. Accessing attachments on ordinary messages requires
+        Discord's Message Content intent.</li>
+    <li><strong>Message and author identifiers.</strong> The message ID, channel ID, and — only
+        when a message is actioned — the author's user ID, so moderators can review the decision.</li>
+  </ul>
+  <p>The bot does <strong>not</strong> read, parse, log, or store the <strong>text</strong> of
+     messages, nor does it use the Presence or Server Members intents.</p>
+
+  <h2>3. How we use and retain data</h2>
+  <table>
+    <tr><th>Data</th><th>Use</th><th>Retention</th></tr>
+    <tr><td>Image attachment bytes</td><td>Downloaded to memory, embedded, scored for scam similarity</td><td>Discarded immediately after scoring; never written to disk</td></tr>
+    <tr><td>Message text</td><td>Not used</td><td>Never accessed</td></tr>
+    <tr><td>Repeat-post tracking (attachment URLs, channel IDs per user)</td><td>Detect the same images spammed across channels</td><td>In memory only, evicted after 10 minutes</td></tr>
+    <tr><td>Moderation evidence (flagged images + actioned user ID)</td><td>Posted to a private moderator-only log channel for human review of automated bans</td><td>Stored within Discord, in the server's moderator-only channel</td></tr>
+    <tr><td>Operational logs (message ID, channel ID, image count, latency)</td><td>Monitor bot load and reliability</td><td>Ephemeral console output on the bot host</td></tr>
+  </table>
+
+  <h2>4. Storage and security</h2>
+  <ul>
+    <li>The bot maintains <strong>no database</strong> and keeps <strong>no long-term store</strong>
+        of member content. Image processing is in-memory and transient.</li>
+    <li>The only retained record of member content is moderation evidence, which lives inside the
+        server's own private moderator-only channel within Discord.</li>
+    <li>Credentials (the bot token) are stored as host environment configuration, never in source
+        code, and are not shared with third parties.</li>
+    <li>The bot does not sell, rent, or share data with any third party. Processing is local to the
+        bot host; no analytics or advertising services are used.</li>
+  </ul>
+
+  <h2>5. Calibration data</h2>
+  <p>To tune detection accuracy and minimize false positives, we may periodically sample recent
+     images from designated channels. These samples are processed <strong>in memory</strong>,
+     reduced to non-reversible numerical embeddings, and the underlying images are discarded —
+     they are never written to disk or retained.</p>
+
+  <h2>6. Children's privacy</h2>
+  <p>The bot is intended for use in communities that comply with Discord's minimum age requirements
+     and is not directed at children under those requirements.</p>
+
+  <h2>7. Your choices</h2>
+  <p>The bot only acts on images you post in the server, so it processes no data about you unless you
+     post image attachments. You may leave the server at any time. If you were actioned and believe it
+     was in error, or you have questions or requests regarding data the bot has handled relating to
+     you (including deletion of moderation evidence), contact the server's moderators or us at
+     <a href="mailto:juan@anlatan.ai">juan@anlatan.ai</a>.</p>
+
+  <h2>8. Changes</h2>
+  <p>We may update this policy as the bot evolves. Material changes will be reflected here with a
+     new effective date.</p>
+
+  <h2>9. Contact</h2>
+  <p>Anlatan — <a href="mailto:juan@anlatan.ai">juan@anlatan.ai</a></p>
+
+  <footer>clio-cop Privacy Policy · Effective 2026-06-11 ·
+    <a href="terms.html">Terms of Service</a> · <a href="index.html">Home</a></footer>
+</div>
+</body>
+</html>

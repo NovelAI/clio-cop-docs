@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>clio-cop — automated scam moderation for Discord</title>
+<style>
+  :root { --bg:#0f1115; --card:#171a21; --fg:#e6e8eb; --muted:#9aa3af; --accent:#5865f2; --line:#262b35; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+         background:var(--bg); color:var(--fg); }
+  .wrap { max-width:760px; margin:0 auto; padding:48px 24px 80px; }
+  header { text-align:center; margin-bottom:40px; }
+  h1 { font-size:2.4rem; margin:.2em 0; }
+  .tag { color:var(--muted); font-size:1.05rem; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:24px 28px; margin:20px 0; }
+  h2 { font-size:1.25rem; margin-top:0; }
+  ul { padding-left:1.2em; }
+  li { margin:.3em 0; }
+  .muted { color:var(--muted); }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .links { display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-top:28px; }
+  .links a { border:1px solid var(--line); padding:10px 18px; border-radius:8px; }
+  footer { text-align:center; color:var(--muted); font-size:.9rem; margin-top:48px; }
+  code { background:#0b0d12; padding:1px 6px; border-radius:5px; font-size:.9em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>clio-cop</h1>
+    <p class="tag">An automated content-moderation bot that protects Discord communities from image-based scams.</p>
+  </header>
+
+  <div class="card">
+    <h2>What it does</h2>
+    <p>clio-cop detects a recurring crypto-impersonation scam in which bad actors post a fixed
+       sequence of images — a fake celebrity endorsement, a phishing-site screenshot, a fake
+       "withdrawal success" screen, and a fake wallet balance — across channels to defraud members.</p>
+    <ul>
+      <li>Passively scans <strong>image attachments</strong> on posted messages.</li>
+      <li>Scores them against known scam-image signatures using perceptual-hash and CLIP
+          image-embedding similarity over the ordered image "story".</li>
+      <li>Removes high-confidence scam posts and bans the poster; flags borderline cases to
+          human moderators.</li>
+      <li>Detects the same image set reposted across multiple channels in quick succession.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Privacy at a glance</h2>
+    <ul>
+      <li>Uses the <strong>Message Content</strong> intent solely to read image attachments —
+          it does <strong>not</strong> read or store message text.</li>
+      <li>Images are processed <strong>in memory and discarded</strong>; no database, no
+          long-term storage of user content.</li>
+      <li>The only retained record is moderation evidence posted to a private, moderators-only
+          log channel inside your own server.</li>
+    </ul>
+    <p class="muted">Full details in the <a href="privacy.html">Privacy Policy</a>.</p>
+  </div>
+
+  <div class="links">
+    <a href="terms.html">Terms of Service</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="mailto:juan@anlatan.ai">Contact</a>
+  </div>
+
+  <footer>
+    <p>Operated by Anlatan · contact <a href="mailto:juan@anlatan.ai">juan@anlatan.ai</a><br>
+       Effective 2026-06-11</p>
+  </footer>
+</div>
+</body>
+</html>
