@@ -40,11 +40,11 @@
        "withdrawal success" screen, and a fake wallet balance — across channels to defraud members.</p>
     <ul>
       <li>Passively scans <strong>image attachments</strong> on posted messages.</li>
-      <li>Scores them against known scam-image signatures using perceptual-hash and CLIP
-          image-embedding similarity over the ordered image "story".</li>
-      <li>Removes high-confidence scam posts and bans the poster; flags borderline cases to
-          human moderators.</li>
-      <li>Detects the same image set reposted across multiple channels in quick succession.</li>
+      <li>Scores them against known scam-image signatures using CLIP image-embedding
+          similarity over the ordered image "story".</li>
+      <li>Tallies strikes per user across repeated posts — warning the user, then removing
+          posts and banning on continued scam matches.</li>
+      <li>Flags borderline cases to human moderators for review.</li>
     </ul>
   </div>
 
